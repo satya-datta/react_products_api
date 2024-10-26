@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
@@ -36,7 +36,7 @@ function App() {
     <DefaultLayout>
       <Routes>
         <Route
-          index
+          
           element={
             <>
               <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
@@ -73,16 +73,20 @@ function App() {
         />
         <Route
           path="/forms/form-layout"
+        
           element={
             <>
               <PageTitle title="Form Layout | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <FormLayout />
             </>
           }
+          
         />
+         <Route path="*" element={<Navigate to="/forms/form-layout" replace />} />
           <Route path="/products/:id" element={<ProductDetails />} />
 
         <Route
+          
           path="/products"
           element={
             <>
